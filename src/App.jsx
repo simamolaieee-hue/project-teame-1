@@ -1,5 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
+import NotFound from "./Components/NotFound";
+
+import OurStory from "./Components/OurStory"
 function App() {
   return (
     <>
@@ -8,6 +11,9 @@ function App() {
           <Route />
         </Routes>
       </BrowserRouter>
+<NotFound/>
+<OurStory/>
+    
     </>
   )
 }
