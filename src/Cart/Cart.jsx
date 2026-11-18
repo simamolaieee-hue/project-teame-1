@@ -40,7 +40,7 @@ export default function Cart() {
   };
 
   const applyCoupon = () => {
-    if (coupon.trim().toUpperCase() === 'DISCOUNT10') {
+    if (coupon.trim().toUpperCase() === 'COUNT10') {
       setDiscount(0.1);
       alert('کد تخفیف با موفقیت اعمال شد!');
     } else {
