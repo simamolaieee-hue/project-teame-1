@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cart() {
+  const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
@@ -51,27 +53,28 @@ export default function Cart() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 font-sans text-gray-800">
-  
+   
       <div className="text-sm text-gray-400 mb-10">
-        Home <span className="mx-2">/</span> <span className="text-gray-800 font-medium">Cart</span>
+        Home <span className="mx-2">/</span > <span className="text-gray-800 font-medium">Cart</span>
       </div>
 
- 
+    
       <div className="bg-white shadow-sm rounded-lg overflow-hidden mb-8">
         <div className="grid grid-cols-4 p-4 border-b text-gray-500 font-medium text-sm">
-          <div>Product</div>
-          <div className="text-center">Price</div>
-          <div className="text-center">Quantity</div>
-          <div className="text-right">Subtotal</div>
-        </div>
+          <div className="pl-4">Product</div >
+          <div className="text-center">Price</div >
+          <div className="text-center">Quantity</div >
+          <div className="text-right pr-4">Subtotal</div >
+        </div >
 
         {cartItems.length === 0 ? (
           <div className="p-8 text-center text-gray-500">سبد خرید شما خالی است.</div>
         ) : (
           cartItems.map((item) => (
             <div key={item.id} className="grid grid-cols-4 items-center p-4 border-b last:border-none">
-         
-              <div className="flex items-center gap-4 relative">
+              
+              
+              <div className="flex items-center gap-4 relative pl-4">
                 <button 
                   onClick={() => removeItem(item.id)}
                   className="absolute -top-2 -left-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs hover:bg-red-600 transition"
@@ -82,33 +85,35 @@ export default function Cart() {
                 <span className="font-medium">{item.name}</span>
               </div>
 
-           
+             
               <div className="text-center">${item.price}</div>
 
-           
+             
               <div className="flex justify-center items-center">
                 <div className="flex items-center border rounded px-3 py-1 gap-3">
-                  <span>{String(item.quantity).padStart(2, '0')}</span>
+                  <span className="w-4 text-center">{String(item.quantity).padStart(2, '0')}</span>
                   <div className="flex flex-col text-[10px]">
-                    <button onClick={() => handleQuantityChange(item.id, 1)} className="text-gray-500 hover:text-black">
+                    <button onClick={() => handleQuantityChange(item.id, 1)} className="hover:text-black">
                       ▲
                     </button>
-                    <button onClick={() => handleQuantityChange(item.id, -1)} className="text-gray-500 hover:text-black">
+                    <button onClick={() => handleQuantityChange(item.id, -1)} className="hover:text-black">
                       ▼
                     </button>
                   </div>
                 </div>
               </div>
 
-         
-              <div className="text-right font-medium">${item.price * item.quantity}</div>
+              <div className="text-right pr-4 font-medium">${item.price * item.quantity}</div>
             </div>
           ))
         )}
       </div>
-    
+
       <div className="flex justify-between items-center mb-12">
-        <button className="border border-gray-400 px-6 py-3 rounded text-sm font-medium hover:bg-gray-50 transition">
+        <button 
+          onClick={() => navigate('/wishlist')} 
+          className="border border-gray-400 px-6 py-3 rounded text-sm font-medium hover:bg-gray-50 transition"
+        >
           Return To Shop
         </button>
         <button 
@@ -119,8 +124,8 @@ export default function Cart() {
         </button>
       </div>
 
-      
       <div className="flex flex-col md:flex-row justify-between gap-8 items-start">
+
         <div className="flex gap-4 w-full md:w-auto">
           <input 
             type="text" 
@@ -136,6 +141,7 @@ export default function Cart() {
             Apply Coupon
           </button>
         </div>
+
 
         <div className="border border-gray-400 rounded p-6 w-full md:w-96">
           <h3 className="font-bold text-lg mb-4">Cart Total</h3>
@@ -162,11 +168,11 @@ export default function Cart() {
             <span>${finalTotal}</span>
           </div>
 
-          <button 
-            onClick={() => alert('در حال انتقال به صفحه پرداخت...')}
-            className="w-full bg-red-500 text-white py-3 rounded text-sm font-medium mt-4 hover:bg-red-600 transition text-center"
+          <button
+            onClick={() => navigate('/checkout')}
+            className="w-full bg-red-500 text-white py-3 rounded text-sm font-medium mt-4 hover:bg-red-600 transition"
           >
-            Procees to checkout
+            Proceed to checkout
           </button>
         </div>
       </div>
