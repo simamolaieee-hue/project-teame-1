@@ -7,7 +7,7 @@ import Pictuare from "./Header/Sliderpicture/Pictuare";
 import Products from "./Main/Products";
 import Categorie from "./Main/Categorie";
 import Login from "./Header/Navbar/Login";
-import Thismonth from "./Main/Thismonth";
+
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/" element={<><Pictuare /><Products /><Categorie /><Thismonth/></>}/>
+          <Route path="/" element={<><Pictuare /><Products /><Categorie /></>}/>
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/signup" element={<SignUp />} />
