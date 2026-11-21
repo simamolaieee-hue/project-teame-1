@@ -1,4 +1,17 @@
 @import "tailwindcss";
+.swiper-pagination-bullet {
+  background: #a7a5a5 !important;
+  opacity: 0.6 !important;
+}
 
-
-
+.swiper-pagination-bullet-active {
+  background: #DB4444 !important;
+  opacity: 1 !important;
+}
+.swiper-pagination {
+  bottom: 10px !important;
+}
+.picture-swiper .swiper-pagination {
+  text-align: left !important;
+  padding-left: 330px;
+}
