@@ -47,7 +47,7 @@ function Categorie() {
                         </div>
                     ))}
                 </div>
-                 <div className="w-220 h-px bg-gray-300 flex mt-4 mx-25 mt-14"></div>
+                 <div className="w-235 h-px bg-gray-300 flex mt-4 mx-25 mt-14"></div>
             </div>
         </>
     )

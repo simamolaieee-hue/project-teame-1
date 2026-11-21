@@ -12,9 +12,8 @@ const productslist = [
     {
         id: 2,
         name: "AK-900 Wired Keyboard",
-        image: "/keybord.png",
-        discount: "-35%",
-        price: 960,
+        image: "keybord.png",
+        price: "$960",
         oldPrice: 1160,
         rating: 4,
         reviews: 75,
@@ -80,6 +79,43 @@ export const Categories=[
         name:"Gaming",
         image:"game.png",
         active:false
+    }
+];
+export const thismonthe=[
+    {
+        id: 1,
+        name: "The north coat",
+        image: "coat.png",
+        price: 260,
+        oldPrice: 360,
+        rating: 5,
+        reviews: 66,
+    },
+     {
+        id: 2,
+        name: "Gucci duffle bag",
+        image: "bag.png",
+        price: 960,
+        oldPrice: 1160,
+        rating: 4,
+        reviews: 65,
+    },
+     {
+        id: 3,
+        name: "RGB liquid CPU Cooler",
+        image: "band.png",
+        price: 160,
+        oldPrice: 170,
+        rating: 4,
+        reviews: 65,
+    },
+     {
+        id: 4,
+        name: "Small BookSelf",
+        image: "div.png",
+        price: 360,
+        rating: 5,
+        reviews: 65,
     }
 ]
 export default productslist
