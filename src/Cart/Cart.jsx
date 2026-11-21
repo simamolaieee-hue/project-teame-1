@@ -36,6 +36,7 @@ export default function Cart() {
   };
 
   const removeItem = (id) => {
+    // console
     setCartItems(items => items.filter(item => item.id !== id));
   };
 
