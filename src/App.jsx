@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import Header from "./Header/Header";
 import Contact from "./Header/Navbar/Contact";
 import About from "./Header/Navbar/About";
@@ -16,7 +16,7 @@ import Footer from "./Footer/Footer";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      
         <Header />
 
         <Routes>
@@ -27,7 +27,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
         </Routes>
         <Footer/>
-      </BrowserRouter>
+      
     </>
   )
 }
