@@ -1,7 +1,7 @@
 function Featured() {
     return (
         <>
-            <div className="mt-12">
+            <div className="mt-30">
                 <div className="ml-25 flex gap-5 items-center">
                     <div className="w-5 h-10 bg-[#DB4444] rounded-[5px]"></div>
                     <h1 className="text-[#DB4444] font-bold">Featured</h1>
@@ -27,7 +27,7 @@ function Featured() {
                 </div>
             </div>
 
-            <div className="flex justify-center gap-15  mt-28">
+            <div className="flex justify-center gap-15  mt-32">
                 <div className="flex-col flex justify-center items-center w-65 h-40 ">
                     <img src="ser2.png" alt=""
                     className="w-20 h-20" />
@@ -37,14 +37,14 @@ function Featured() {
                  <div className="flex-col flex justify-center items-center w-65 h-40 ">
                     <img src="ser1.png" alt=""
                     className="w-20 h-20" />
-                    <h1 className="font-bold text-[19px] mt-5">FREE AND FAST DELIVERY</h1>
-                    <h1>Free delivery for all orders over $140</h1>
+                    <h1 className="font-bold text-[19px] mt-5">24/7 CUSTOMER SERVICE</h1>
+                    <h1>Friendly 24/7 customer support</h1>
                 </div>
                  <div className="flex-col flex justify-center items-center w-65 h-40">
                     <img src="ser.png" alt=""
                     className="w-20 h-20" />
-                    <h1 className="font-bold text-[19px] mt-5">FREE AND FAST DELIVERY</h1>
-                    <h1>Free delivery for all orders over $140</h1>
+                    <h1 className="font-bold text-[19px] mt-5">MONEY BACK GUARANTEE</h1>
+                    <h1>We reurn money within 30 days</h1>
                 </div>
                 
             </div>

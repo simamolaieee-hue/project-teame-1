@@ -1,6 +1,7 @@
 import { ChevronDown, Heart, Search, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 
+
 function Header() {
     return (
         <>
@@ -45,7 +46,9 @@ function Header() {
                             className="bg-[#F5F5F5] w-50 h-7 rounded-[4px] placeholder:text-[11px] placeholder:text-center placeholder:indent-[-25px]" />
                         <Search size={16} className="absolute right-54 top-18"></Search>
                         <Heart size={20}></Heart>
+                        <Link to={"/wishlist"}>
                         <ShoppingCart size={20}></ShoppingCart>
+                        </Link>
                     </div>
                 </div>
 
