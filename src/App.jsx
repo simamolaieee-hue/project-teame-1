@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import Header from "./Header/Header";
 import Contact from "./Header/Navbar/Contact";
 import About from "./Header/Navbar/About";
@@ -17,6 +17,7 @@ import Todays from "./Main/Todays";
 function App() {
   return (
     <>
+      
         <Header />
 
         <Routes>
@@ -28,6 +29,7 @@ function App() {
           <Route path="/wishlist" element={<Wishlist/>}/>
         </Routes>
         <Footer/>
+      
     </>
   )
 }
