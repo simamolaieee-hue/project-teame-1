@@ -17,7 +17,6 @@ import Todays from "./Main/Todays";
 function App() {
   return (
     <>
-      <BrowserRouter>
         <Header />
 
         <Routes>
@@ -29,7 +28,6 @@ function App() {
           <Route path="/wishlist" element={<Wishlist/>}/>
         </Routes>
         <Footer/>
-      </BrowserRouter>
     </>
   )
 }

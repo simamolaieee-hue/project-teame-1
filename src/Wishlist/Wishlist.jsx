@@ -88,7 +88,6 @@ function Wishlist() {
                 </div>
             </div>
 
-
             <div className="flex flex-row flex-wrap items-center justify-center w-full h-30 gap-5 mt-10">
                 {[
                     { name: "Gucci duffle bag", price: "$960", oldPrice: "$1160" },
