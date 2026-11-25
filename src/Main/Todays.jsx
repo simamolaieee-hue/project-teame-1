@@ -2,13 +2,21 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import {Heart,Eye, Star} from "lucide-react";
+import { Heart, Eye, Star } from "lucide-react";
 import productslist from "./array";
-function Products() {
+function Todays() {
+    const [favorites, setFavorites] =useState([])
     const [swiper, setSwiper] = useState(null);
+    const toggleFavorite = (id) => {
+        setFavorites(prev =>
+            prev.includes(id)
+                ? prev.filter(item => item !== id)
+                : [...prev, id]
+        );
+    };
     return (
         <>
-            <div className="mt-25">
+            <div className="mt-30">
 
                 <div className="ml-25 flex gap-5 items-center">
                     <div className="w-5 h-10 bg-[#DB4444] rounded-[5px]"></div>
@@ -45,21 +53,21 @@ function Products() {
 
                         </div>
 
-                       <div className="flex gap-1 ml-70">
-                         <button
-                            onClick={() => swiper?.slidePrev()}
-                            className="w-9 h-9 rounded-full bg-[#F5F5F5] flex items-center justify-center "
-                        >
-                            <ArrowLeft size={19} />
-                        </button>
+                        <div className="flex gap-1 ml-70">
+                            <button
+                                onClick={() => swiper?.slidePrev()}
+                                className="w-9 h-9 rounded-full bg-[#F5F5F5] flex items-center justify-center "
+                            >
+                                <ArrowLeft size={19} />
+                            </button>
 
-                        <button
-                            onClick={() => swiper?.slideNext()}
-                            className="w-9 h-9 rounded-full bg-[#F5F5F5] flex items-center justify-center "
-                        >
-                            <ArrowRight size={19} />
-                        </button>
-                       </div>
+                            <button
+                                onClick={() => swiper?.slideNext()}
+                                className="w-9 h-9 rounded-full bg-[#F5F5F5] flex items-center justify-center "
+                            >
+                                <ArrowRight size={19} />
+                            </button>
+                        </div>
                     </div>
 
                 </div>
@@ -81,20 +89,23 @@ function Products() {
                                 className="!w-[205px]"
                             >
 
-                                <div className="w-full ">
+                                <div className="w-full group ">
 
-                                
+
                                     <div className="relative  h-[190px] bg-[#F5F5F5] rounded-sm flex items-center justify-center overflow-hidden">
 
                                         <span className="absolute top-2 left-2 bg-[#DB4444] text-white text-[10px] px-2 py-1 rounded-sm z-10">
                                             {item.discount}
                                         </span>
 
-                                        
+
                                         <div className="absolute top-2 right-2 flex flex-col gap-2 z-10">
 
-                                            <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center">
-                                                <Heart size={16} />
+                                            <button onClick={() => toggleFavorite(item.id)} className="w-7 h-7 bg-white rounded-full flex items-center justify-center">
+                                                <Heart size={16}
+                                                    fill={favorites.includes(item.id) ? "red" : "none"}
+                                                    color={favorites.includes(item.id) ? "red" : "black"}
+                                                />
                                             </button>
 
                                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center">
@@ -132,7 +143,7 @@ function Products() {
                                         </div>
 
                                         <div className="flex items-center gap-2 mt-2">
-                                        {/* نمایش امتیاز و تعداد ستاره‌های هر محصول بر اساس مقدار rating ستاره‌های امتیازگرفته‌شده زرد و بقیه خاکستری نمایش داده می‌شوند*/}
+                                            {/* نمایش امتیاز و تعداد ستاره‌های هر محصول بر اساس مقدار rating ستاره‌های امتیازگرفته‌شده زرد و بقیه خاکستری نمایش داده می‌شوند*/}
                                             <div className="flex items-center gap-[2px]">
                                                 {Array.from({ length: 5 }).map((_, index) => (
                                                     <Star
@@ -173,4 +184,4 @@ function Products() {
         </>
     )
 }
-export default Products
+export default Todays

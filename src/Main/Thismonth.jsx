@@ -1,6 +1,14 @@
-import { useState } from "react";
 import {Heart,Eye, Star} from "lucide-react";
+import { useState } from "react";
 function Thismonth(){
+    const [favorites, setFavorites] =useState([]);
+        const toggleFavorite = (id) => {
+            setFavorites(prev =>
+                prev.includes(id)
+                    ? prev.filter(item => item !== id)
+                    : [...prev, id]
+            );
+        };
     return(
         <>
         <div className="mt-15">
@@ -21,8 +29,10 @@ function Thismonth(){
 
                        <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100 rounded-[5px] flex justify-center items-center">
-                          <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-22 left-41">
-                                                <Heart size={16} />
+                          <button onClick={() => toggleFavorite(0)}
+                           className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-22 left-41">
+                                                <Heart fill={favorites.includes(0) ? "red" : "none"}
+                                    color={favorites.includes(0) ? "red" : "black"} size={16} size={16} />
                                             </button>
                                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-14.5 left-34">
                                                 <Eye size={16} />
@@ -46,8 +56,10 @@ function Thismonth(){
 
                        <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100  rounded-[5px] flex justify-center items-center">
-                        <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative  bottom-22 left-43">
-                                                <Heart size={16} />
+                        <button onClick={() => toggleFavorite(1)}
+                         className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative  bottom-22 left-43">
+                                                <Heart fill={favorites.includes(1) ? "red" : "none"}
+                                    color={favorites.includes(1) ? "red" : "black"} size={16} size={16} />
                                             </button>
                                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-14 left-36">
                                                 <Eye size={16} />
@@ -71,8 +83,10 @@ function Thismonth(){
 
                        <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100  rounded-[5px] flex justify-center items-center">
-                         <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-22 left-46">
-                                                <Heart size={16} />
+                         <button onClick={() => toggleFavorite(2)}
+                          className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-22 left-46">
+                                                <Heart fill={favorites.includes(2) ? "red" : "none"}
+                                    color={favorites.includes(2) ? "red" : "black"} size={16} size={16} />
                                             </button>
                                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-14 left-39">
                                                 <Eye size={16} />
@@ -96,8 +110,10 @@ function Thismonth(){
 
                        <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100  rounded-[5px] flex justify-center items-center">
-                         <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-22 left-41">
-                                                <Heart size={16} />
+                         <button onClick={() => toggleFavorite(3)}
+                          className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-22 left-41">
+                                                <Heart fill={favorites.includes(3) ? "red" : "none"}
+                                    color={favorites.includes(3) ? "red" : "black"} size={16} size={16} />
                                             </button>
                                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-14 left-34">
                                                 <Eye size={16} />
