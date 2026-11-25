@@ -7,7 +7,10 @@ function OurStory() {
 
       <div className="mx-auto max-w-[1170px]">
 
-        {/* Breadcrumb */}
+
+
+
+
         <div className="mb-12 flex items-center gap-3 text-[13px] text-[#555]">
             <a
             href="/"
@@ -23,10 +26,9 @@ function OurStory() {
           </span>
         </div>
 
-        {/* Main Section */}
+  
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
 
-          {/* Text */}
           <div className="max-w-[480px] text-left">
 
             <h1 className="mb-8 text-[46px] font-semibold leading-tight text-[#111]">
@@ -49,7 +51,6 @@ function OurStory() {
 
           </div>
 
-          {/* Image */}
           <div className="flex justify-end">
 
             <img
@@ -81,8 +82,7 @@ function OurStory() {
 
 
 
-      <div className="grid  sm:grid-cols-2 lg:grid-cols-4 flex justify-center gap-0 mt-16">
-
+     <div className="grid grid-cols-2 lg:grid-cols-4 justify-center justify-items-center gap-2 mt-16">
   {[
     {
       icon: "/images/store.png",
@@ -111,7 +111,7 @@ function OurStory() {
   ].map((item, index) => (
     <div
       key={index}
-      className={`w-[200px] h-[200px] border flex flex-col items-center justify-center transition-all duration-300 ${
+      className={`w-[200px] h-[200px] border flex  flex-col items-center justify-center transition-all  gap-0 duration-300 ${
         item.active
           ? "bg-[#DB4444] border-[#DB4444] text-white"
           : "bg-white border-gray-300 text-black"
@@ -136,6 +136,8 @@ function OurStory() {
   ))}
 
 </div>
+
+
 
 
 

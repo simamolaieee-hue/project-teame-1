@@ -15,7 +15,9 @@ function Contact() {
 
       <div className="max-w-[1170px] mx-auto px-6">
 
-        {/* Breadcrumb */}
+
+
+
         <div className="flex items-center gap-3 pt-16 text-sm">
 
           <a
@@ -33,13 +35,15 @@ function Contact() {
 
         </div>
 
-        {/* Main Section */}
+      
         <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-10 md:gap-[70px] mt-32 mb-32">
 
-          {/* Left Section */}
+
+
+
           <div className="w-full">
 
-            {/* Call To Us */}
+        
             <div className="pb-8 border-b border-gray-300">
 
               <div className="flex items-center gap-4 mb-6">
@@ -64,7 +68,10 @@ function Contact() {
 
             </div>
 
-            {/* Write To Us */}
+
+
+
+
             <div className="pt-8">
 
               <div className="flex items-center gap-4 mb-6">
@@ -96,12 +103,12 @@ function Contact() {
 
           </div>
 
-          {/* Right Section - Form */}
+
           <div className="w-full">
 
             <form onSubmit={handleSubmit}>
 
-              {/* Input Fields */}
+           
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
 
                 <input
@@ -127,14 +134,14 @@ function Contact() {
 
               </div>
 
-              {/* Message */}
+        
               <textarea
                 placeholder="Your Message"
                 required
                 className="w-full h-[207px] bg-[#F5F5F5] p-4 text-sm text-black placeholder:text-gray-500 rounded-sm outline-none resize-none focus:ring-1 focus:ring-[#DB4444]"
               />
 
-              {/* Send Button */}
+          
               <div className="flex justify-end mt-8">
 
                 <button

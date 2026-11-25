@@ -19,7 +19,10 @@ function ProductDetails() {
     <div className="w-full min-h-screen bg-white">
       <div className="max-w-[1170px] mx-auto px-5 py-12">
 
-        {/* Breadcrumb */}
+
+
+
+
         <div className="flex items-center gap-3 text-sm text-gray-500 mb-10">
         <a
             href="/"
@@ -40,13 +43,12 @@ function ProductDetails() {
           <span className="text-black">Havic HV G-92 Gamepad</span>
         </div>
 
-        {/* Product Section */}
+        
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-14 items-start">
 
-          {/* Left Images */}
           <div className="grid grid-cols-[100px_minmax(0,1fr)] gap-5 h-[380px] lg:h-[520px]">
 
-            {/* Small Images */}
+            
             <div className="grid grid-rows-4 gap-4 h-full">
               {[
                 "/images/gamepad-1.png",
@@ -67,7 +69,7 @@ function ProductDetails() {
               ))}
             </div>
 
-            {/* Main Image */}
+           
             <div className="w-full h-full bg-[#F5F5F5] rounded-sm flex items-center justify-center overflow-hidden">
               <img
                 src="/images/gamepad-main.png"
@@ -77,17 +79,17 @@ function ProductDetails() {
             </div>
           </div>
 
-          {/* Right Information */}
+         
           <div className="w-full flex flex-col justify-between lg:h-[520px]">
 
-            {/* Product Information */}
+           
             <div>
-              {/* Product Name */}
+            
               <h1 className="text-2xl font-semibold text-black mb-3">
                 Havic HV G-92 Gamepad
               </h1>
 
-              {/* Rating */}
+            
               <div className="flex items-center gap-3 mb-3 flex-wrap">
                 <div className="flex items-center gap-1">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -121,12 +123,12 @@ function ProductDetails() {
                 </span>
               </div>
 
-              {/* Price */}
+          
               <h2 className="text-2xl text-black mb-3">
                 $192.00
               </h2>
 
-              {/* Description */}
+        
               <p className="text-sm leading-6 text-black pb-4 border-b border-gray-300">
                 PlayStation 5 Controller Skin High quality vinyl with air
                 channel adhe
@@ -134,7 +136,7 @@ sive for easy bubble free install & mess
                 free removal Pressure sensitive.
               </p>
 
-              {/* Colours */}
+            
               <div className="flex items-center gap-4 mt-4 mb-4">
                 <span className="text-lg text-black">
                   Colours:
@@ -158,7 +160,7 @@ sive for easy bubble free install & mess
                 </div>
               </div>
 
-              {/* Sizes */}
+           
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-lg text-black">
                   Size:
@@ -182,7 +184,7 @@ sive for easy bubble free install & mess
                 </div>
               </div>
 
-              {/* Quantity and Buttons */}
+           
               <div className="flex flex-wrap items-center gap-4 mb-5">
                 <div className="flex items-center h-11 border border-gray-400 rounded-sm overflow-hidden">
                   <button
@@ -230,7 +232,7 @@ sive for easy bubble free install & mess
               </div>
             </div>
 
-            {/* Delivery Box */}
+         
             <div className="border border-gray-400 rounded-sm">
               <div className="flex items-center gap-5 p-4 border-b border-gray-300">
                 <Truck size={32} strokeWidth={1.5} />
@@ -266,7 +268,6 @@ sive for easy bubble free install & mess
   
 
 
-{/* Related Items */}
 <div className="w-full mt-28">
 
   <div className="flex items-center gap-4 mb-10">
@@ -278,7 +279,7 @@ sive for easy bubble free install & mess
 
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
 
-    {/* Product 1 */}
+  
     <div className="w-full">
       <img
         src="/images/related-gamepad.png"
@@ -305,7 +306,7 @@ sive for easy bubble free install & mess
       </div>
     </div>
 
-    {/* Product 2 */}
+  
     <div className="w-full">
       <img
         src="/images/related-keyboard.png"
@@ -333,7 +334,7 @@ sive for easy bubble free install & mess
       </div>
     </div>
 
-    {/* Product 3 */}
+   
     <div className="w-full">
       <img
         src="/images/related-monitor.png"
@@ -360,7 +361,6 @@ sive for easy bubble free install & mess
       </div>
     </div>
 
-    {/* Product 4 */}
     <div className="w-full">
       <img
         src="/images/related-cooler.png"

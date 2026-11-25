@@ -4,10 +4,12 @@ function NotFound() {
   return (
     <div className="w-full min-h-screen bg-white">
 
-      {/* Main Container */}
+      
       <div className="max-w-[1170px] mx-auto px-6">
 
-        {/* Breadcrumb */}
+
+
+       
         <div className="flex items-center gap-3 pt-16 text-sm">
           <a
             href="/"
@@ -23,7 +25,12 @@ function NotFound() {
           </span>
         </div>
 
-        {/* 404 Content */}
+             
+
+
+
+
+
         <div className="flex flex-col items-center justify-center text-center py-32">
 
           <h1 className="text-6xl md:text-8xl lg:text-[110px] font-medium tracking-wide text-black">
