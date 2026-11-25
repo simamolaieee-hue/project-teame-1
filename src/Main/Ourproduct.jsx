@@ -8,13 +8,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 function Ourproduct() {
-    const [favorites, setFavorites] = useState([]);
-    const toggleFavorite = (id) => {
-        setFavorites(prev =>
-            prev.includes(id)
-                ? prev.filter(item => item !== id)
-                : [...prev, id]
-        );
+    const [favorites, setFavorites] = useState(() => {
+        return JSON.parse(localStorage.getItem("wishlist")) || [];
+    });
+    const toggleFavorite = (product) => {
+        const updatedFavorites = favorites.some(item => item.id === product.id)
+            ? favorites.filter(item => item.id !== product.id)
+            : [...favorites, product];
+
+        setFavorites(updatedFavorites);
+        localStorage.setItem("wishlist", JSON.stringify(updatedFavorites));
+        window.dispatchEvent(new Event("wishlistUpdated"));
     };
     const [swiper, setSwiper] = useState(null);
     const [image5, setImage5] = useState(0);
@@ -52,10 +56,18 @@ function Ourproduct() {
                 <div className="flex gap-6 ml-25 mt-12">
                     <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100 rounded-[5px] flex justify-center items-center">
-                            <button onClick={() => toggleFavorite(0)}
+                            <button onClick={() => toggleFavorite({
+                                id: 0,
+                                name: "Breed Dry Dog Food",
+                                price: 100,
+                                image: "im1.png"
+                            })}
                                 className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-22 left-41">
-                                <Heart fill={favorites.includes(0) ? "red" : "none"}
-                                    color={favorites.includes(0) ? "red" : "black"} size={16} />
+                                <Heart
+                                    fill={favorites.some(item => item.id === 0) ? "red" : "none"}
+                                    color={favorites.some(item => item.id === 0) ? "red" : "black"}
+                                    size={16}
+                                />
                             </button>
                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-14.5 left-34">
                                 <Eye size={16} />
@@ -80,10 +92,15 @@ function Ourproduct() {
 
                     <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100 rounded-[5px] flex justify-center items-center">
-                            <button onClick={() => toggleFavorite(1)}
+                            <button onClick={() => toggleFavorite({
+                                id: 1,
+                                name: "CANON EOS DSLR Camera",
+                                price: 360,
+                                image: "im2.png"
+                            })}
                                 className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-22 left-41">
-                                <Heart fill={favorites.includes(1) ? "red" : "none"}
-                                    color={favorites.includes(1) ? "red" : "black"}
+                                <Heart fill={favorites.some(item => item.id === 1) ? "red" : "none"}
+                                    color={favorites.some(item => item.id === 1) ? "red" : "black"}
                                     size={16} />
                             </button>
                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-14.5 left-34">
@@ -108,10 +125,16 @@ function Ourproduct() {
 
                     <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100 rounded-[5px] flex justify-center items-center">
-                            <button onClick={() => toggleFavorite(2)}
+                            <button onClick={() => toggleFavorite({
+                                id: 2,
+                                name: "ASUS FHD Gaming Laptop",
+                                price: 700,
+                                image: "im3.png"
+                            })}
                                 className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-22 left-41">
-                                <Heart fill={favorites.includes(2) ? "red" : "none"}
-                                    color={favorites.includes(2) ? "red" : "black"} size={16} />
+                                <Heart fill={favorites.some(item => item.id === 2) ? "red" : "none"}
+                                    color={favorites.some(item => item.id === 2) ? "red" : "black"}
+                                    size={16} />
                             </button>
                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-14.5 left-34">
                                 <Eye size={16} />
@@ -135,10 +158,16 @@ function Ourproduct() {
 
                     <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100 rounded-[5px] flex justify-center items-center">
-                            <button onClick={() => toggleFavorite(3)}
+                            <button onClick={() => toggleFavorite({
+                                id: 3,
+                                name: "Curology Product Set",
+                                price: 500,
+                                image: "im4.png"
+                            })}
                                 className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-22 left-41">
-                                <Heart fill={favorites.includes(3) ? "red" : "none"}
-                                    color={favorites.includes(3) ? "red" : "black"} size={16} />
+                                <Heart fill={favorites.some(item => item.id === 3) ? "red" : "none"}
+                                    color={favorites.some(item => item.id === 3) ? "red" : "black"}
+                                    size={16} />
                             </button>
                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center relative bottom-14.5 left-34">
                                 <Eye size={16} />
@@ -168,10 +197,16 @@ function Ourproduct() {
                     <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100 rounded-[5px] flex justify-center items-center relative">
 
-                            <button onClick={() => toggleFavorite(4)}
+                            <button onClick={() => toggleFavorite({
+                                id: 4,
+                                name: "Kids Electric Car",
+                                price: 960,
+                                image: "im5.png"
+                            })}
                                 className="w-7 h-7 bg-white rounded-full flex items-center justify-center absolute top-2 right-2">
-                                <Heart fill={favorites.includes(4) ? "red" : "none"}
-                                    color={favorites.includes(4) ? "red" : "black"} size={16} />
+                                <Heart fill={favorites.some(item => item.id === 4) ? "red" : "none"}
+                                    color={favorites.some(item => item.id === 4) ? "red" : "black"}
+                                    size={16} />
                             </button>
 
                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center absolute top-11 right-2">
@@ -204,10 +239,16 @@ function Ourproduct() {
                     <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100 rounded-[5px] flex justify-center items-center relative">
 
-                            <button onClick={() => toggleFavorite(5)}
+                            <button onClick={() => toggleFavorite({
+                                id: 5,
+                                name: "Jr. Zoom Soccer Cleats",
+                                price: 1160,
+                                image: "im6.png"
+                            })}
                                 className="w-7 h-7 bg-white rounded-full flex items-center justify-center absolute top-2 right-2">
-                                <Heart fill={favorites.includes(5) ? "red" : "none"}
-                                    color={favorites.includes(5) ? "red" : "black"} size={16} />
+                                <Heart fill={favorites.some(item => item.id === 5) ? "red" : "none"}
+                                    color={favorites.some(item => item.id === 5) ? "red" : "black"}
+                                    size={16} />
                             </button>
 
                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center absolute top-11 right-2">
@@ -240,10 +281,16 @@ function Ourproduct() {
                     <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100 rounded-[5px] flex justify-center items-center relative">
 
-                            <button onClick={() => toggleFavorite(6)}
+                            <button onClick={() => toggleFavorite({
+                                id: 6,
+                                name: "GP11 Shooter USB Gamepad",
+                                price: 660,
+                                image: "im7.png"
+                            })}
                                 className="w-7 h-7 bg-white rounded-full flex items-center justify-center absolute top-2 right-2">
-                                <Heart fill={favorites.includes(6) ? "red" : "none"}
-                                    color={favorites.includes(6) ? "red" : "black"} size={16} />
+                                <Heart fill={favorites.some(item => item.id === 6) ? "red" : "none"}
+                                    color={favorites.some(item => item.id === 6) ? "red" : "black"}
+                                    size={16} />
                             </button>
 
                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center absolute top-11 right-2">
@@ -276,10 +323,16 @@ function Ourproduct() {
                     <div className="w-55 h-70 bg-white">
                         <div className="w-55 h-53 bg-gray-100 rounded-[5px] flex justify-center items-center relative">
 
-                            <button onClick={() => toggleFavorite(7)}
+                            <button onClick={() => toggleFavorite({
+                                id: 7,
+                                name: "Quilted Satin Jacket",
+                                price: 660,
+                                image: "im8.png"
+                            })}
                                 className="w-7 h-7 bg-white rounded-full flex items-center justify-center absolute top-2 right-2">
-                                <Heart fill={favorites.includes(7) ? "red" : "none"}
-                                    color={favorites.includes(7) ? "red" : "black"} size={16} />
+                                <Heart fill={favorites.some(item => item.id === 7) ? "red" : "none"}
+                                    color={favorites.some(item => item.id === 7) ? "red" : "black"}
+                                    size={16} />
                             </button>
 
                             <button className="w-7 h-7 bg-white rounded-full flex items-center justify-center absolute top-11 right-2">
