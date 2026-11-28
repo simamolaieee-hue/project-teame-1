@@ -79,7 +79,7 @@ function Header() {
                     <div className="flex gap-5 ">
                         <input type="text" placeholder="What are you looking for?"
                             className="bg-[#F5F5F5] w-50 h-7 rounded-[4px] placeholder:text-[11px] placeholder:text-center placeholder:indent-[-25px]" />
-                        <Search size={16} className="absolute right-54 top-18"></Search>
+                        <Search size={16} className="absolute right-60 top-16"></Search>
                         <Heart size={20}></Heart>
                         <Link to={"/wishlist"} className="relative">
                             <ShoppingCart size={20} />
@@ -94,7 +94,7 @@ function Header() {
                         {isLoggedIn && (
                             <div className="relative">
 
-                                {/* آیکون آدم */}
+                                
                                 <button
                                     onClick={() => setShowProfileMenu(!showProfileMenu)}
                                     className="w-11 h-11 bg-[#DB4444] rounded-full flex items-center justify-center"
@@ -102,13 +102,14 @@ function Header() {
                                     <UserRound size={22} color="white" />
                                 </button>
 
-                                {/* منوی کشویی */}
                                 {showProfileMenu && (
                                     <div className="absolute right-0 top-13 w-[300px] bg-gradient-to-br from-[#aaa1aa] to-[#211522] text-white rounded-md shadow-lg z-50 py-4">
 
                                         <button className="w-full flex items-center gap-5 px-7 py-3 hover:bg-white/10">
                                             <UserRound size={27} />
+                                            <Link to={"/myaccount"}>
                                             <span>Manage My Account</span>
+                                            </Link>
                                         </button>
 
                                         <button className="w-full flex items-center gap-5 px-7 py-3 hover:bg-white/10">

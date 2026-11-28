@@ -1,27 +1,32 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 export default function Cart() {
   const navigate = useNavigate();
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: 'LCD Monitor',
-      price: 650,
-      quantity: 1,
-      image: 'g27cq4-500x500 1.png',
-    },
-    {
-      id: 2,
-      name: 'H1 Gamepad',
-      price: 550,
-      quantity: 2,
-      image: 'g92-2-500x500 1.png',
-    },
-  ]);
+  const [cartItems, setCartItems] = useState(() => {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+});
 
   const [coupon, setCoupon] = useState('');
   const [discount, setDiscount] = useState(0);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+}, [cartItems]);
+
+useEffect(() => {
+    const updateCart = () => {
+        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+        setCartItems(savedCart);
+    };
+
+    window.addEventListener("cartUpdate", updateCart);
+
+    return () => {
+        window.removeEventListener("cartUpdate", updateCart);
+    };
+}, []);
 
   const handleQuantityChange = (id, delta) => {
     setCartItems(items =>
@@ -56,7 +61,10 @@ export default function Cart() {
     <div className="max-w-6xl mx-auto px-4 py-8 font-sans text-gray-800">
    
       <div className="text-sm text-gray-400 mb-10">
-        Home <span className="mx-2">/</span > <span className="text-gray-800 font-medium">Cart</span>
+        <Link to={"/"}>
+        <span>Home</span>
+        </Link>
+        <span className="mx-2">/</span > <span className="text-gray-800 font-medium">Cart</span>
       </div>
 
     
@@ -173,7 +181,9 @@ export default function Cart() {
             onClick={() => navigate('/checkout')}
             className="w-full bg-red-500 text-white py-3 rounded text-sm font-medium mt-4 hover:bg-red-600 transition"
           >
+            <Link to={"/checkout"}>
             Proceed to checkout
+            </Link>
           </button>
         </div>
       </div>

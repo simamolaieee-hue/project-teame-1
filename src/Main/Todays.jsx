@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Heart, Eye, Star } from "lucide-react";
 import productslist from "./array";
+import { Link } from "react-router-dom";
 function Todays() {
     const [favorites, setFavorites] =useState([])
     const [swiper, setSwiper] = useState(null);
@@ -14,6 +15,38 @@ function Todays() {
                 : [...prev, id]
         );
     };
+    const handleAddToCart = (product) => {
+    const oldCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const existingProduct = oldCart.find(
+        item => item.id === product.id
+    );
+
+    let updatedCart;
+
+    if (existingProduct) {
+        updatedCart = oldCart.map(item =>
+            item.id === product.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+        );
+    } else {
+        updatedCart = [
+            ...oldCart,
+            {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: 1,
+                image: product.image
+            }
+        ];
+    }
+
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+    window.dispatchEvent(new Event("cartUpdate"));
+};
     return (
         <>
             <div className="mt-30">
@@ -120,8 +153,11 @@ function Todays() {
                                             className="w-[65%] h-[140px] object-contain"
                                         />
 
-                                        <button className="absolute bottom-0 left-0 w-full bg-black text-white text-sm py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                        <button onClick={() => handleAddToCart(item)}
+                                         className="absolute bottom-0 left-0 w-full bg-black text-white text-sm py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                            <Link to={"/cart"}>
                                             Add To Cart
+                                            </Link>
                                         </button>
 
                                     </div>
